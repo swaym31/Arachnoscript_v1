@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arachnoscript — Typeface Specimen</title>
+<style>
+@font-face{font-family:'Arachnoscript';src:url('assets/Arachnoscript-Regular.woff2') format('woff2'), url('assets/Arachnoscript-Regular.ttf') format('truetype');font-display:swap;}
+@font-face{font-family:'Arachnoscript Text';src:url('assets/ArachnoscriptText-Regular.woff2') format('woff2'), url('assets/ArachnoscriptText-Regular.ttf') format('truetype');font-display:swap;}
+:root{
+  --bg:#14130f; --panel:#1c1a14; --panel2:#211e17;
+  --ink:#ece5d6; --muted:#8c8474; --line:#39342a; --accent:#d29442;
+  --serif:Georgia,'Iowan Old Style','Times New Roman',serif;
+  --mono:ui-monospace,'SF Mono','Cascadia Code',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.55;}
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(24px,5vw,64px);}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 18px;}
+.hero{border-bottom:1px solid var(--line);padding-bottom:40px;margin-bottom:48px;}
+.hero .mark{font-family:'Arachnoscript';font-size:clamp(64px,16vw,176px);line-height:.9;
+  color:var(--ink);margin:0;word-break:break-word;}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(22px,3vw,30px);
+  margin:18px 0 6px;letter-spacing:.01em;}
+.hero p{color:var(--muted);max-width:56ch;margin:0;font-size:15px;}
+h2{font-family:var(--serif);font-weight:500;font-size:22px;margin:0;}
+.sec{margin:52px 0;}
+.sec-head{display:flex;align-items:baseline;gap:14px;
+  border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:24px;}
+.sec-head .n{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.2em;}
+.grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));}
+.spec{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;position:relative;transition:background .15s,border-color .15s;}
+.spec:hover{background:var(--panel2);border-color:var(--accent);}
+.spec .glyph{font-family:'Arachnoscript';font-size:54px;line-height:1;color:var(--ink);}
+.spec figcaption{position:absolute;left:8px;right:8px;bottom:7px;display:flex;
+  justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;}
+.spec figcaption b{color:var(--accent);font-weight:600;}
+.spec .cp{color:var(--muted);}
+.demo{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  padding:28px 30px;}
+.demo .big{font-family:'Arachnoscript Text';font-size:clamp(26px,5vw,42px);
+  line-height:1.25;margin:0 0 6px;}
+.demo .cap{color:var(--muted);font-size:14px;margin:14px 0 0;}
+.demo .cap b{color:var(--ink);font-weight:600;}
+pre{background:#0e0d0a;border:1px solid var(--line);border-radius:10px;
+  padding:20px 22px;overflow:auto;font-family:var(--mono);font-size:13px;
+  color:#cde3d2;line-height:1.6;}
+.note{color:var(--muted);font-size:14px;}
+.files{font-family:var(--mono);font-size:13px;color:var(--muted);
+  border-top:1px solid var(--line);margin-top:56px;padding-top:22px;}
+.files b{color:var(--ink);}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;color:var(--accent);
+  border:1px solid var(--line);border-radius:99px;padding:3px 10px;margin-left:auto;}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style></head>
+<body><div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Arachnoscript · Typeface Specimen</p>
+    <p class="mark">arachnoscript</p>
+    <h1>A display alphabet drawn from spiders</h1>
+    <p>Twenty-six letterforms and ten numerals, hand-drawn and built into a working
+       font. Letters and digits are yours; everything else falls back to English.</p>
+  </header>
+
+  <section class="sec">
+    <div class="sec-head"><span class="n">A — Z</span><h2>Letters</h2>
+      <span class="tag">a–z = A–Z</span></div>
+    <div class="grid"><figure class="spec"><span class="glyph">a</span><figcaption><b>a</b><span class="cp">U+0061</span></figcaption></figure><figure class="spec"><span class="glyph">b</span><figcaption><b>b</b><span class="cp">U+0062</span></figcaption></figure><figure class="spec"><span class="glyph">c</span><figcaption><b>c</b><span class="cp">U+0063</span></figcaption></figure><figure class="spec"><span class="glyph">d</span><figcaption><b>d</b><span class="cp">U+0064</span></figcaption></figure><figure class="spec"><span class="glyph">e</span><figcaption><b>e</b><span class="cp">U+0065</span></figcaption></figure><figure class="spec"><span class="glyph">f</span><figcaption><b>f</b><span class="cp">U+0066</span></figcaption></figure><figure class="spec"><span class="glyph">g</span><figcaption><b>g</b><span class="cp">U+0067</span></figcaption></figure><figure class="spec"><span class="glyph">h</span><figcaption><b>h</b><span class="cp">U+0068</span></figcaption></figure><figure class="spec"><span class="glyph">i</span><figcaption><b>i</b><span class="cp">U+0069</span></figcaption></figure><figure class="spec"><span class="glyph">j</span><figcaption><b>j</b><span class="cp">U+006A</span></figcaption></figure><figure class="spec"><span class="glyph">k</span><figcaption><b>k</b><span class="cp">U+006B</span></figcaption></figure><figure class="spec"><span class="glyph">l</span><figcaption><b>l</b><span class="cp">U+006C</span></figcaption></figure><figure class="spec"><span class="glyph">m</span><figcaption><b>m</b><span class="cp">U+006D</span></figcaption></figure><figure class="spec"><span class="glyph">n</span><figcaption><b>n</b><span class="cp">U+006E</span></figcaption></figure><figure class="spec"><span class="glyph">o</span><figcaption><b>o</b><span class="cp">U+006F</span></figcaption></figure><figure class="spec"><span class="glyph">p</span><figcaption><b>p</b><span class="cp">U+0070</span></figcaption></figure><figure class="spec"><span class="glyph">q</span><figcaption><b>q</b><span class="cp">U+0071</span></figcaption></figure><figure class="spec"><span class="glyph">r</span><figcaption><b>r</b><span class="cp">U+0072</span></figcaption></figure><figure class="spec"><span class="glyph">s</span><figcaption><b>s</b><span class="cp">U+0073</span></figcaption></figure><figure class="spec"><span class="glyph">t</span><figcaption><b>t</b><span class="cp">U+0074</span></figcaption></figure><figure class="spec"><span class="glyph">u</span><figcaption><b>u</b><span class="cp">U+0075</span></figcaption></figure><figure class="spec"><span class="glyph">v</span><figcaption><b>v</b><span class="cp">U+0076</span></figcaption></figure><figure class="spec"><span class="glyph">w</span><figcaption><b>w</b><span class="cp">U+0077</span></figcaption></figure><figure class="spec"><span class="glyph">x</span><figcaption><b>x</b><span class="cp">U+0078</span></figcaption></figure><figure class="spec"><span class="glyph">y</span><figcaption><b>y</b><span class="cp">U+0079</span></figcaption></figure><figure class="spec"><span class="glyph">z</span><figcaption><b>z</b><span class="cp">U+007A</span></figcaption></figure></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><span class="n">0 — 9</span><h2>Numerals</h2>
+      <span class="tag">scaled to letter height</span></div>
+    <div class="grid"><figure class="spec"><span class="glyph">0</span><figcaption><b>0</b><span class="cp">U+0030</span></figcaption></figure><figure class="spec"><span class="glyph">1</span><figcaption><b>1</b><span class="cp">U+0031</span></figcaption></figure><figure class="spec"><span class="glyph">2</span><figcaption><b>2</b><span class="cp">U+0032</span></figcaption></figure><figure class="spec"><span class="glyph">3</span><figcaption><b>3</b><span class="cp">U+0033</span></figcaption></figure><figure class="spec"><span class="glyph">4</span><figcaption><b>4</b><span class="cp">U+0034</span></figcaption></figure><figure class="spec"><span class="glyph">5</span><figcaption><b>5</b><span class="cp">U+0035</span></figcaption></figure><figure class="spec"><span class="glyph">6</span><figcaption><b>6</b><span class="cp">U+0036</span></figcaption></figure><figure class="spec"><span class="glyph">7</span><figcaption><b>7</b><span class="cp">U+0037</span></figcaption></figure><figure class="spec"><span class="glyph">8</span><figcaption><b>8</b><span class="cp">U+0038</span></figcaption></figure><figure class="spec"><span class="glyph">9</span><figcaption><b>9</b><span class="cp">U+0039</span></figcaption></figure></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><span class="n">MIX</span><h2>Yours + English, one file</h2></div>
+    <div class="demo">
+      <p class="big">abc, def! (123) &amp; “go” — 50%</p>
+      <p class="cap">Set in <b>Arachnoscript Text</b>. The letters and numbers are the custom
+        glyphs; the comma, parentheses, ampersand, quotes, dash and percent come from the
+        English base font built into the same file.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><span class="n">USE</span><h2>Drop it into your keypad</h2></div>
+    <p class="note">Put a font file next to your CSS and load it. <b>Arachnoscript</b> (your
+      glyphs only) keeps the file tiny — leave punctuation out and let the browser fall
+      back to a system font:</p>
+    <pre>@font-face {
+  font-family: 'Arachnoscript';
+  src: url('assets/Arachnoscript-Regular.woff2') format('woff2'),
+       url('assets/Arachnoscript-Regular.ttf')   format('truetype');
+  font-display: swap;
+}
+
+/* letters &amp; digits → your glyphs; commas, etc. → fallback */
+.arachnoscript { font-family: 'Arachnoscript', system-ui, sans-serif; }</pre>
+    <p class="note">Prefer one self-contained file that needs no fallback (Word, exports,
+      anywhere)? Use <b>ArachnoscriptText-Regular.woff2</b> instead — punctuation is built in,
+      so <code style="font-family:var(--mono)">font-family:'Arachnoscript Text'</code> alone is enough.</p>
+  </section>
+
+  <div class="files">
+    <b>In this folder</b><br>
+    Arachnoscript-Regular.woff2 / .ttf — your glyphs only (lightest; web/keypad)<br>
+    ArachnoscriptText-Regular.woff2 / .ttf — letters &amp; digits yours, punctuation English (self-contained)<br>
+    Arachnoscript.sfd — editable FontForge source<br>
+    specimen.html — this page
+  </div>
+
+</div></body></html>
