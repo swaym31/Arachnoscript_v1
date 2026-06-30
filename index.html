@@ -16,20 +16,23 @@
   --mono:ui-monospace,'SF Mono','Cascadia Code',Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-html,body{margin:0;height:100%;}
-body{background:var(--bg);color:var(--ink);
+html,body{margin:0;}
+body{background:var(--bg);color:var(--ink);min-height:100vh;min-height:100dvh;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   display:flex;justify-content:center;}
-.phone{width:100%;max-width:460px;min-height:100%;display:flex;flex-direction:column;
+.phone{width:100%;max-width:460px;min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;
   padding:14px 12px calc(12px + env(safe-area-inset-bottom));gap:12px;}
-
+ 
 header{padding:6px 4px 0;}
 .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
   color:var(--accent);margin:0 0 4px;}
 header h1{font-family:var(--serif);font-weight:500;font-size:18px;margin:0;}
-
+ 
 .screen{background:var(--panel);border:1px solid var(--line);border-radius:14px;
-  padding:14px 14px 10px;display:flex;flex-direction:column;gap:8px;min-height:132px;}
+  padding:14px 14px 10px;display:flex;flex-direction:column;gap:8px;
+  flex:1 1 auto;min-height:120px;}
+.displaywrap{flex:1 1 auto;min-height:0;display:flex;align-items:center;overflow:auto;}
 .bar{display:flex;align-items:center;gap:8px;}
 .bar .sp{flex:1;}
 .tbtn{appearance:none;border:1px solid var(--line);background:transparent;color:var(--muted);
@@ -38,9 +41,9 @@ header h1{font-family:var(--serif);font-weight:500;font-size:18px;margin:0;}
 .tbtn:active{transform:scale(.96);}
 .tbtn.on{color:#1a160f;background:var(--accent);border-color:var(--accent);font-weight:600;}
 .flash{color:var(--accent)!important;border-color:var(--accent)!important;}
-
-.output{font-family:'Arachnoscript Text';font-size:clamp(34px,9vw,52px);line-height:1.22;
-  min-height:1.3em;word-break:break-word;white-space:pre-wrap;display:block;}
+ 
+.output{width:100%;font-family:'Arachnoscript Text';font-size:clamp(34px,9vw,52px);
+  line-height:1.22;min-height:1.3em;word-break:break-word;white-space:pre-wrap;display:block;}
 .caret{display:inline-block;width:2px;height:1em;background:var(--accent);
   vertical-align:-0.15em;margin-left:1px;animation:blink 1.05s steps(1) infinite;}
 @keyframes blink{50%{opacity:0;}}
@@ -48,8 +51,8 @@ header h1{font-family:var(--serif);font-weight:500;font-size:18px;margin:0;}
   min-height:1em;}
 .latin.hide{display:none;}
 .latin .ph{opacity:.55;}
-
-.keyboard{margin-top:auto;display:flex;flex-direction:column;gap:7px;
+ 
+.keyboard{flex:0 0 auto;display:flex;flex-direction:column;gap:7px;
   padding:10px 8px calc(10px + env(safe-area-inset-bottom));
   background:var(--panel);border:1px solid var(--line);border-radius:16px;}
 .krow{display:flex;gap:6px;justify-content:center;}
@@ -62,7 +65,7 @@ header h1{font-family:var(--serif);font-weight:500;font-size:18px;margin:0;}
 .key.fn{flex:1.5 1 0;background:var(--fn);color:var(--muted);font-size:15px;}
 .key.space{flex:5 1 0;}
 .key.wide{flex:1.5 1 0;}
-
+ 
 footer{padding:2px 6px 0;color:var(--muted);font-size:12px;line-height:1.45;}
 footer b{color:var(--ink);font-weight:600;}
 @media (max-height:680px){.key{height:44px;}.key.glyph{font-size:23px;}}
@@ -74,7 +77,7 @@ footer b{color:var(--ink);font-weight:600;}
     <p class="eyebrow">Arachnoscript · Keypad</p>
     <h1>Tap to write in Arachnoscript</h1>
   </header>
-
+ 
   <div class="screen">
     <div class="bar">
       <button class="tbtn" id="copy">Copy</button>
@@ -82,25 +85,25 @@ footer b{color:var(--ink);font-weight:600;}
       <span class="sp"></span>
       <button class="tbtn on" id="toglatin">Latin</button>
     </div>
-    <div class="output" id="out"><span class="caret"></span></div>
+    <div class="displaywrap"><div class="output" id="out"><span class="caret"></span></div></div>
     <div class="latin" id="latin"><span class="ph">latin readout</span></div>
   </div>
-
+ 
   <div class="keyboard" id="kb"></div>
-
+ 
   <footer>
     Keys show your glyphs; tapping inserts the letter. <b>Copy</b> grabs the text as plain
     letters — paste it anywhere using the Arachnoscript font and it shows as glyphs.
   </footer>
 </div>
-
+ 
 <script>
 (function(){
   var buffer="";
   var out=document.getElementById('out'),
       latin=document.getElementById('latin'),
       kb=document.getElementById('kb');
-
+ 
   function render(){
     out.textContent="";
     if(buffer) out.appendChild(document.createTextNode(buffer));
@@ -110,7 +113,7 @@ footer b{color:var(--ink);font-weight:600;}
   }
   function insert(ch){ buffer+=ch; render(); }
   function del(){ if(buffer){ buffer=buffer.slice(0,-1); render(); } }
-
+ 
   // build keyboard from layout
   var rows=[
     {keys:"1234567890".split("")},
@@ -136,7 +139,7 @@ footer b{color:var(--ink);font-weight:600;}
     else { b.dataset.key=o.ch; b.textContent=o.ch; }
     return b;
   }
-
+ 
   // press handling (snappy, no zoom / no native keyboard)
   var holdTimer=null, holdInt=null;
   function press(b){
@@ -156,7 +159,7 @@ footer b{color:var(--ink);font-weight:600;}
   ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
     kb.addEventListener(ev, stopHold);
   });
-
+ 
   // toolbar
   document.getElementById('clear').addEventListener('click',function(){ buffer=""; render(); });
   document.getElementById('toglatin').addEventListener('click',function(){
@@ -177,7 +180,7 @@ footer b{color:var(--ink);font-weight:600;}
       document.body.removeChild(ta);
     }
   });
-
+ 
   render();
 })();
 </script>
